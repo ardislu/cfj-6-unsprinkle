@@ -4,8 +4,11 @@ import styled from 'styled-components/macro';
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <HeroPicture>
+        <source type="image/avif" srcset="/images/hero-img.avif" />
+        <img alt="Example of a cat on a black background." src="/images/hero-img.jpg" />
+      </HeroPicture>
+      <Swoop alt="" src="/swoop.svg" />
     </Wrapper>
   );
 };
@@ -20,11 +23,13 @@ const Wrapper = styled.section`
   background: hsl(0deg 0% 1%);
 `;
 
-const HeroImage = styled.img`
-  display: block;
-  width: 500px;
-  height: 500px;
-  max-height: 100%;
+const HeroPicture = styled.picture`
+  & img {
+    display: block;
+    width: 500px;
+    height: 500px;
+    max-height: 100%;
+  }
 `;
 
 const Swoop = styled.img`
